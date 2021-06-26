@@ -1,5 +1,12 @@
-"""Top-level package for Base package for the development of integration modules with chat applications for the handsoff of conversations.."""
+# type: ignore[attr-defined]
+"""Daschat handsoff plugin base."""
 
-__author__ = """Abner G Jacobsen"""
-__email__ = "abner@apoana.com.br"
-__version__ = "0.1.0"
+from pkg_resources import DistributionNotFound, get_distribution
+
+try:
+    __version__ = get_distribution("daschat_handsoff_base").version
+except DistributionNotFound:
+    __version__ = "(local)"
+
+__author__ = "Daschat.io"
+__email__ = "admin@daschat.io"

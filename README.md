@@ -35,7 +35,7 @@ Install Python versions using `pyenv` and enable all versions to be used with `t
 
 ``` console
 $ pyenv install 3.7.10 3.8.10 3.9.5
-$ pyenv shell 3.7.10 3.8.10 3.9.5
+$ pyenv shell 3.8.10 3.9.5
 $ pyenv local 3.7.10
 ```
 
