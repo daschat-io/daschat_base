@@ -40,6 +40,7 @@ $ pyenv shell 3.8.10 3.9.5
 $ pyenv local 3.8.10
 ```
 
-## Credits
+## Acknowledgements
 
-This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [zillionare/cookiecutter-pypackage](https://github.com/zillionare/cookiecutter-pypackage) project template.
+ - [Cookiecutter](https://github.com/audreyr/cookiecutter)
+ - [zillionare/cookiecutter-pypackage](https://github.com/zillionare/cookiecutter-pypackage)
