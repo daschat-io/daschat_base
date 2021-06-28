@@ -6,7 +6,7 @@ import pytest
 
 from daschat_base import __author__, __email__, __version__
 
-current_version = "0.1.0"
+current_version = "0.2.0"
 current_author = "Daschat.io"
 current_email = "admin@daschat.io"
 
