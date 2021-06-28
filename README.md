@@ -44,3 +44,4 @@ $ pyenv local 3.8.10
 
  - [Cookiecutter](https://github.com/audreyr/cookiecutter)
  - [zillionare/cookiecutter-pypackage](https://github.com/zillionare/cookiecutter-pypackage)
+ - [Naereen/badges](https://github.com/Naereen/badges)
