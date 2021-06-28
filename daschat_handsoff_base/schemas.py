@@ -8,7 +8,6 @@ from typing import Any, Dict, List, Optional
 from pydantic import AnyHttpUrl, BaseModel, Field, stricturl
 
 
-# Schemas from Daschat
 class MessageTypeEnum(str, Enum):
     text = "text"
     image = "image"
@@ -22,6 +21,11 @@ class MessageTypeEnum(str, Enum):
 
 
 class ActionToTypeEnum(str, Enum):
+    """ActionToTypeEnum
+
+    Actions types.
+    """
+
     contact = "contact"
     owner = "owner"
     bot = "bot"

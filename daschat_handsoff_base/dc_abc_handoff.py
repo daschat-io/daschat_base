@@ -1,15 +1,17 @@
 """ Daschat handoff metaclasses
 
 This module must be used to create any handoff plugin to be used with the `Daschat
-System`_.
+System`.
 
 Todo:
     * Write docs
     * You have to also use ``sphinx.ext.todo`` extension
 
-.. _Some docs about how it is made:
-https://realpython.com/factory-method-python/
-https://medium.com/@geoffreykoh/implementing-the-factory-pattern-via-dynamic-registry-and-python-decorators-479fc1537bbe
+Some docs about how it is made:
+
+* https://realpython.com/factory-method-python/
+
+* https://medium.com/@geoffreykoh/implementing-the-factory-pattern-via-dynamic-registry-and-python-decorators-479fc1537bbe
 
 """
 
