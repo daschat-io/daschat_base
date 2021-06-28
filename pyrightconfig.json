@@ -10,7 +10,7 @@
         ".vscode",
         "docs",
         "**/__pycache__",
-        "daschat_daschat_handsoff_base.egg-info"
+        "daschat_daschat_base.egg-info"
     ],
     "ignore": [
         "src/oldstuff"

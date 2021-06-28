@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-"""Tests for `daschat_handsoff_base` package."""
+"""Tests for `daschat_base` package."""
 # pylint: disable=redefined-outer-name
 
 import pytest
 
-from daschat_handsoff_base import __author__, __email__, __version__
+from daschat_base import __author__, __email__, __version__
 
 current_version = "0.1.0"
 current_author = "Daschat.io"

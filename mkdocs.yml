@@ -1,7 +1,7 @@
 site_name: Base package for the development of integration modules with chat applications for the handsoff of conversations.
 # site_url: http://www.jieyu.ai
-repo_url: https://github.com/daschat-io/daschat_handsoff_base
-repo_name: daschat_handsoff_base
+repo_url: https://github.com/daschat-io/daschat_base
+repo_name: daschat_base
 #strict: true
 nav:
     - home: index.md
@@ -50,7 +50,7 @@ plugins:
           lang: en
     - mkdocstrings:
           watch:
-              - daschat_handsoff_base
+              - daschat_base
 extra:
     social:
         - icon: fontawesome/brands/twitter
@@ -62,7 +62,7 @@ extra:
           link: http://www.daschat.io
           name: Facebook
         - icon: fontawesome/brands/github
-          link: https://github.com/daschat-io/daschat_handsoff_base
+          link: https://github.com/daschat-io/daschat_base
           name: Github
         - icon: material/email
           link: "mailto:abner@apoana.com.br"

@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/daschat-io/daschat_handsoff_base/issues.
+Report bugs at https://github.com/daschat-io/daschat_base/issues.
 
 If you are reporting a bug, please include:
 
@@ -35,7 +35,7 @@ articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/daschat-io/daschat_handsoff_base/issues.
+The best way to send feedback is to file an issue at https://github.com/daschat-io/daschat_base/issues.
 
 If you are proposing a feature:
 
@@ -46,13 +46,13 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `daschat_handsoff_base` for local development.
+Ready to contribute? Here's how to set up `daschat_base` for local development.
 
-1. Fork the `daschat_handsoff_base` repo on GitHub.
+1. Fork the `daschat_base` repo on GitHub.
 2. Clone your fork locally
 
 ```
-    $ git clone git@github.com:your_name_here/daschat_handsoff_base.git
+    $ git clone git@github.com:your_name_here/daschat_base.git
 ```
 
 3. Ensure [poetry](https://python-poetry.org/docs/) is installed.
@@ -96,11 +96,11 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.md.
 3. The pull request should work for Python 3.7, 3.8, 3.9 and for PyPy. Check
-   https://github.com/daschat-io/daschat_handsoff_base/actions
+   https://github.com/daschat-io/daschat_base/actions
    and make sure that the tests pass for all supported Python versions.
 
 ## Tips```
-    $ pytest tests.test_daschat_handsoff_base
+    $ pytest tests.test_daschat_base
 ```To run a subset of tests.
 
 

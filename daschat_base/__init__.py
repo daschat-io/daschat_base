@@ -1,10 +1,10 @@
 # type: ignore[attr-defined]
-"""Daschat handsoff plugin base."""
+"""Daschat base fro modules and plugins."""
 
 from pkg_resources import DistributionNotFound, get_distribution
 
 try:
-    __version__ = get_distribution("daschat_handsoff_base").version
+    __version__ = get_distribution("daschat_base").version
 except DistributionNotFound:
     __version__ = "(local)"
 

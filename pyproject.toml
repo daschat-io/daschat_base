@@ -1,9 +1,9 @@
 [tool]
 [tool.poetry]
-name = "daschat_handsoff_base"
+name = "daschat_base"
 version = "0.1.0"
-homepage = "https://github.com/daschat-io/daschat_handsoff_base"
-description = "Base package for Daschat handsoff modules."
+homepage = "https://github.com/daschat-io/daschat_base"
+description = "Base package for Daschat modules."
 authors = ["Abner G Jacobsen <abner@apoana.com.br>"]
 readme = "README.md"
 license = "MIT"
@@ -16,7 +16,7 @@ classifiers = [
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
 ]
-packages = [{ include="daschat_handsoff_base" }]
+packages = [{ include="daschat_base" }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
