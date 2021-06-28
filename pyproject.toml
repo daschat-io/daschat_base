@@ -6,24 +6,23 @@ homepage = "https://github.com/daschat-io/daschat_handsoff_base"
 description = "Base package for Daschat handsoff modules."
 authors = ["Abner G Jacobsen <abner@apoana.com.br>"]
 readme = "README.md"
-license =  "MIT"
-classifiers=[
+license = "MIT"
+classifiers = [
     'Development Status :: 2 - Pre-Alpha',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: MIT License',
     'Natural Language :: English',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
 ]
 packages = [
-    { include = "daschat_handsoff_base" },
-    { include = "tests", format = "sdist" },
+    { include="daschat_handsoff_base" },
+    { include="tests", format="sdist" },
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0"
+python = ">=3.8,<4.0"
 
 pydantic = "^1.8.2"
 cuid = "^0.3"
@@ -32,53 +31,48 @@ loguru = "^0.5.3"
 [tool.poetry.dev-dependencies]
 
 # Docs
-mkdocs  = { version = "^1.1.2", optional = true}
-mkdocs-include-markdown-plugin  = { version = "^1.0.0", optional = true}
-mkdocs-material  = { version = "^6.1.7", optional = true}
-mkdocs-material-extensions  = { version = "^1.0.1", optional = true}
-mkdocstrings  = { version = "^0.15.2", optional = true}
-mkdocs-autorefs = {version = "0.1.1", optional = true}
+mkdocs-autorefs = "0.1.1"
+mkdocs = "^1.1.2"
+mkdocs-include-markdown-plugin = "^1.0.0"
+mkdocs-material = "^6.1.7"
+mkdocs-material-extensions = "^1.0.1"
+mkdocstrings = "^0.15.2"
 
 # Dev/Test tools
-black  = { version = "20.8b1", optional = true}
-isort  = { version = "5.6.4", optional = true}
-flake8  = { version = "3.8.4", optional = true}
-flake8-docstrings = { version = "^1.6.0", optional = true }
-pytest  = "6.1.2"
-pytest-cov  = { version = "2.10.1", optional = true}
-
-# Dev tools
-tox  = { version = "^3.20.1", optional = true}
-virtualenv  = { version = "^20.2.2", optional = true}
-pip  = { version = "^20.3.1", optional = true}
-twine  = { version = "^3.3.0", optional = true}
-pre-commit = {version = "^2.12.0", optional = true}
-toml = {version = "^0.10.2", optional = true}
+black = "20.8b1"
+isort = "5.6.4"
+flake8 = "3.8.4"
+flake8-docstrings = "^1.6.0"
+pytest = "6.1.2"
+pytest-cov = "2.10.1"
+tox = "^3.20.1"
+virtualenv = "^20.2.2"
+pip = "^20.3.1"
+twine = "^3.3.0"
+pre-commit = "^2.12.0"
+toml = "^0.10.2"
 tox-poetry-dev-dependencies = "^0.0.9"
 
-[tool.poetry.extras]
-test = [
-    "pytest",
-    "black",
-    "isort",
-    "flake8",
-    "flake8-docstrings",
-    "pytest-cov"
-    ]
+# [tool.poetry.extras]
+# test = [
+#     "pytest",
+#     "black",
+#     "isort",
+#     "flake8",
+#     "flake8-docstrings",
+#     "pytest-cov"
+#     ]
 
-dev = ["tox", "pre-commit", "virtualenv", "pip", "twine", "toml"]
+# dev = ["tox", "pre-commit", "virtualenv", "pip", "twine", "toml"]
 
-doc = [
-    "mkdocs",
-    "mkdocs-include-markdown-plugin",
-    "mkdocs-material",
-    "mkdocstrings",
-    "mkdocs-material-extension",
-    "mkdocs-autorefs"
-    ]
-
-
-
+# doc = [
+#     "mkdocs",
+#     "mkdocs-include-markdown-plugin",
+#     "mkdocs-material",
+#     "mkdocstrings",
+#     "mkdocs-material-extension",
+#     "mkdocs-autorefs"
+#     ]
 
 
 [build-system]
