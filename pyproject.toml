@@ -16,10 +16,7 @@ classifiers = [
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
 ]
-packages = [
-    { include="daschat_handsoff_base" },
-    { include="tests", format="sdist" },
-]
+packages = [{ include="daschat_handsoff_base" }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
