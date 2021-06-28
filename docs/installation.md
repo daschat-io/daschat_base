@@ -6,7 +6,7 @@ To install Base package for the development of integration modules with chat app
 terminal:
 
 ``` console
-$ pip install daschat_handsoff_base
+$ pip install daschat_base
 ```
 
 This is the preferred method to install Base package for the development of integration modules with chat applications for the handsoff of conversations., as it will always install the most recent stable release.
@@ -22,13 +22,13 @@ the [Github repo][].
 You can either clone the public repository:
 
 ``` console
-$ git clone git://github.com/daschat-io/daschat_handsoff_base
+$ git clone git://github.com/daschat-io/daschat_base
 ```
 
 Or download the [tarball][]:
 
 ``` console
-$ curl -OJL https://github.com/daschat-io/daschat_handsoff_base/tarball/master
+$ curl -OJL https://github.com/daschat-io/daschat_base/tarball/master
 ```
 
 Once you have a copy of the source, you can install it with:

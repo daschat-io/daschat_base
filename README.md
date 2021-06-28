@@ -19,7 +19,7 @@ Base package for the development of integration modules with chat applications f
 </a>
 
 <!-- <a href="https://daschat-handsoff-base.readthedocs.io/en/latest/?badge=latest">
-    <img src="https://readthedocs.org/projects/daschat-handsoff-base/badge/?version=latest" alt="Documentation Status">
+    <img src="https://readthedocs.org/projects/daschat-base/badge/?version=latest" alt="Documentation Status">
 </a> -->
 
 </p>
