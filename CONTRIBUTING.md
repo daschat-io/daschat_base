@@ -107,11 +107,11 @@ Before you submit a pull request, check that it meets these guidelines:
 ## Deploying
 
 A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in HISTORY.md).
+Make sure all your changes for version are committed in `pyproject.toml` and `test_daschat_handsoff_base.py` (including an entry in HISTORY.md).
 Then run:
 
 ```
-$ poetry patch # possible: major / minor / patch
+$ git tag v0.7.0
 $ git push
 $ git push --tags
 ```
