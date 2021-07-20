@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "daschat_base"
-version = "0.4.0"
+version = "0.7.0"
 homepage = "https://github.com/daschat-io/daschat_base"
 description = "Base package for Daschat modules."
 authors = ["Abner G Jacobsen <abner@apoana.com.br>"]
@@ -16,7 +16,7 @@ classifiers = [
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
 ]
-packages = [{ include="daschat_base" }]
+packages = [{ include = "daschat_base" }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
