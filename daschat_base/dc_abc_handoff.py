@@ -36,6 +36,7 @@ class WebhookTypesEnum(int, Enum):
     UNKNOW = 0
     CHAT_START = 10
     CHAT_QUEUED = 30
+    CHAT_SESSION = 40
     MESSAGE = 60
 
 
