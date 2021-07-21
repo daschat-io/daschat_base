@@ -736,11 +736,11 @@ articles, and such.</p>
 <p>```To run a subset of tests.</p>
 <h3 id="deploying">Deploying<a class="headerlink" href="#deploying" title="Permanent link">&para;</a></h3>
 <p>A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in HISTORY.md).
+Make sure all your changes for version are committed in <code>pyproject.toml</code> and <code>test_daschat_handsoff_base.py</code> (including an entry in HISTORY.md).
 Then run:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ poetry patch # possible: major / minor / patch
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ git tag v0.7.0
 $ git push
 $ git push --tags
 </code></pre></div>
