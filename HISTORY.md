@@ -1,7 +1,8 @@
 # History
 
-## 0.8.0 (in development)
+## 0.8.0 (2021-07-21)
 
+* Added webhook enum type for CHAT_TAKEN
 * Docs corrections in how to deploy official version
 
 ## 0.7.0 (2021-07-20)
