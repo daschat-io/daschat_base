@@ -1,5 +1,9 @@
 # History
 
+## 0.9.0 (2021-10-05)
+
+* Added columns for handsoff app data and chat id control
+
 ## 0.8.0 (2021-07-21)
 
 * Added webhook enum type for CHAT_TAKEN
