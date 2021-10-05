@@ -511,6 +511,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daschat_base.schemas.Chat.handsoff_cid" class="md-nav__link">
+    handsoff_cid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.Chat.handsoff_data" class="md-nav__link">
+    handsoff_data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#daschat_base.schemas.Chat.handson" class="md-nav__link">
     handson
   </a>
@@ -705,6 +719,40 @@
         
           <li class="md-nav__item">
   <a href="#daschat_base.schemas.CustomFields.value" class="md-nav__link">
+    value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema" class="md-nav__link">
+    HandsoffDataSchema
+  </a>
+  
+    <nav class="md-nav" aria-label="HandsoffDataSchema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema.key" class="md-nav__link">
+    key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema.namespace" class="md-nav__link">
+    namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema.value" class="md-nav__link">
     value
   </a>
   
@@ -1073,6 +1121,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#daschat_base.schemas.Chat.handsoff_cid" class="md-nav__link">
+    handsoff_cid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.Chat.handsoff_data" class="md-nav__link">
+    handsoff_data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#daschat_base.schemas.Chat.handson" class="md-nav__link">
     handson
   </a>
@@ -1267,6 +1329,40 @@
         
           <li class="md-nav__item">
   <a href="#daschat_base.schemas.CustomFields.value" class="md-nav__link">
+    value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema" class="md-nav__link">
+    HandsoffDataSchema
+  </a>
+  
+    <nav class="md-nav" aria-label="HandsoffDataSchema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema.key" class="md-nav__link">
+    key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema.namespace" class="md-nav__link">
+    namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daschat_base.schemas.HandsoffDataSchema.value" class="md-nav__link">
     value
   </a>
   
@@ -2056,6 +2152,50 @@ any of it plugins/bots to handoff application chat agent</p>
 
 
 
+<h4 id="daschat_base.schemas.Chat.handsoff_cid" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">handsoff_cid</span><span class="p">:</span> <span class="n">ConstrainedStrValue</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+<a href="#daschat_base.schemas.Chat.handsoff_cid" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Handsoff app own chat ID</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="daschat_base.schemas.Chat.handsoff_data" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">handsoff_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">daschat_base</span><span class="o">.</span><span class="n">schemas</span><span class="o">.</span><span class="n">HandsoffDataSchema</span><span class="p">]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-field"><code>pydantic-field</code></small>
+  </span>
+
+<a href="#daschat_base.schemas.Chat.handsoff_data" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>handsoff data received from the plugin and that need to be stored.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
 <h4 id="daschat_base.schemas.Chat.handson" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">handson</span><span class="p">:</span> <span class="n">ConstrainedStrValue</span></code>
 
@@ -2705,6 +2845,118 @@ any of it plugins/bots to handoff application chat agent</p>
     <div class="doc doc-contents ">
 
       <p>Value of the key.</p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-class">
+
+
+
+<h3 id="daschat_base.schemas.HandsoffDataSchema" class="doc doc-heading">
+        <code>HandsoffDataSchema</code>
+
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-model"><code>pydantic-model</code></small>
+  </span>
+
+<a href="#daschat_base.schemas.HandsoffDataSchema" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="daschat_base.schemas.HandsoffDataSchema.key" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">key</span><span class="p">:</span> <span class="n">ConstrainedStrValue</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-field"><code>pydantic-field</code></small>
+      <small class="doc doc-property doc-property-required"><code>required</code></small>
+  </span>
+
+<a href="#daschat_base.schemas.HandsoffDataSchema.key" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Data unique key.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="daschat_base.schemas.HandsoffDataSchema.namespace" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">namespace</span><span class="p">:</span> <span class="n">ConstrainedStrValue</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-field"><code>pydantic-field</code></small>
+      <small class="doc doc-property doc-property-required"><code>required</code></small>
+  </span>
+
+<a href="#daschat_base.schemas.HandsoffDataSchema.namespace" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Which plugin this data belongs to.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="daschat_base.schemas.HandsoffDataSchema.value" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">value</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-pydantic-field"><code>pydantic-field</code></small>
+      <small class="doc doc-property doc-property-required"><code>required</code></small>
+  </span>
+
+<a href="#daschat_base.schemas.HandsoffDataSchema.value" class="headerlink" title="Permanent link">&para;</a></h4>
+
+    <div class="doc doc-contents ">
+
+      <p>Data value in json format.</p>
     </div>
 
   </div>
