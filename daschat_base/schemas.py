@@ -119,6 +119,29 @@ class StatesSchema(BaseModel):
     channel_in: Optional[List[StateItemSchema]] = []
 
 
+class HandsoffDataSchema(BaseModel):
+    class Config:
+        validate_assignment = True
+
+    namespace: str = Field(
+        ...,
+        max_length=255,
+        title="Namespace",
+        description="Which plugin this data belongs to.",
+        example="rocketchat",
+    )
+    key: str = Field(
+        ...,
+        max_length=50,
+        title="Data key",
+        description="Data unique key.",
+        example="chat",
+    )
+    value: Dict[str, Any] = Field(
+        ..., title="Data value", description="Data value in json format."
+    )
+
+
 class Chat(BaseModel):
     class Config:
         validate_assignment = True
@@ -200,6 +223,18 @@ class Chat(BaseModel):
     )
     # state: Dict[str, Any] = Field({}, title="State", description="Chat state machine.")
     state: Optional[StatesSchema]
+    handsoff_cid: Optional[str] = Field(
+        None,
+        max_length=128,
+        title="Handsoff chat ID",
+        description="Handsoff app own chat ID",
+        example="BxdYnAjpu3PTciw6Z",
+    )
+    handsoff_data: Optional[List[HandsoffDataSchema]] = Field(
+        [],
+        title="Handsoff app data",
+        description="handsoff data received from the plugin and that need to be stored.",
+    )
 
 
 class Contact(BaseModel):
