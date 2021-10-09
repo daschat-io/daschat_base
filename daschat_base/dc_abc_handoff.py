@@ -31,6 +31,12 @@ from pydantic import BaseSettings
 from .schemas import ActionToTypeEnum, Chat, Config, Contact, MessageSchema
 
 
+# Possible ways handsoff app associate chat_id with Superchat
+class ChatIdTypesEnum(int, Enum):
+    SUPERCHAT = 0
+    OWN = 1
+
+
 # Schemas from Daschat
 class WebhookTypesEnum(int, Enum):
     UNKNOW = 0
@@ -75,6 +81,7 @@ class HandoffBase(metaclass=ABCMeta):
     _agent_msg_eom: str = "=========== **[SUPERCHAT] Mensagem do sistema - Fim**"
     _webhook_type: int = WebhookTypesEnum.MESSAGE.value
     status_code: int = 200
+    chat_id_type: int = ChatIdTypesEnum.SUPERCHAT.value
     chat_id: str
     chat_status: int = 0
     request_status: int = 0
