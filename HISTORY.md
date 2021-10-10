@@ -4,8 +4,8 @@
 
 ### :pencil2: Fix typos
 
-* Fixed variable names
-* Addittional doctrings
+* Fixed variable names.
+* Addittional doctrings.
 
 ## 0.10.0 (2021-10-09)
 
