@@ -31,14 +31,26 @@ from pydantic import BaseSettings
 from .schemas import ActionToTypeEnum, Chat, Config, Contact, MessageSchema
 
 
-# Possible ways handsoff app associate chat_id with Superchat
 class ChatIdTypesEnum(int, Enum):
-    SUPERCHAT = 0
+    """Possible ways handsoff app associate chat_id with Daschat
+
+    Args:
+        int ([type]): [description]
+        Enum ([type]): [description]
+    """
+
+    DASCHAT = 0
     OWN = 1
 
 
-# Schemas from Daschat
 class WebhookTypesEnum(int, Enum):
+    """Webhook types processed by this plugin
+
+    Args:
+        int ([type]): [description]
+        Enum ([type]): [description]
+    """
+
     UNKNOW = 0
     CHAT_START = 10
     CHAT_QUEUED = 30
@@ -77,11 +89,11 @@ class HandoffBase(metaclass=ABCMeta):
     logged: bool = False
     headers: dict = {"Content-Type": "application/json"}
     _actions: List[dict] = []
-    _agent_msg_bom: str = "=========== **[SUPERCHAT] Mensagem do sistema - Início**"
-    _agent_msg_eom: str = "=========== **[SUPERCHAT] Mensagem do sistema - Fim**"
+    _agent_msg_bom: str = "=========== **[BOT] Mensagem do sistema - Início**"
+    _agent_msg_eom: str = "=========== **[BOT] Mensagem do sistema - Fim**"
     _webhook_type: int = WebhookTypesEnum.MESSAGE.value
     status_code: int = 200
-    chat_id_type: int = ChatIdTypesEnum.SUPERCHAT.value
+    chat_id_type: int = ChatIdTypesEnum.DASCHAT.value
     chat_id: str
     chat_status: int = 0
     request_status: int = 0
@@ -95,7 +107,13 @@ class HandoffBase(metaclass=ABCMeta):
     data_in: str
 
     def __init__(self, config: Config, settings: Any, data: dict, **kwargs):
-        """Constructor"""
+        """Initialize handsoff plugin
+
+        Args:
+            config (Config): Config of channel, hansdoff app, plugins, etc
+            settings (Any): Settinhs of the Daschat installation
+            data (dict): Additional data
+        """
         self.config: Config = config
         self.settings: BaseSettings = settings
         self.data: dict = data
