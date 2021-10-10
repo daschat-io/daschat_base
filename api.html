@@ -1627,8 +1627,33 @@ System</code>.</p>
 
     <div class="doc doc-contents ">
 
-      <p>An enumeration.</p>
+      <p>Possible ways handsoff app associate chat_id with Daschat</p>
 
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>int</code></td>
+        <td><code>[type]</code></td>
+        <td><p>[description]</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>Enum</code></td>
+        <td><code>[type]</code></td>
+        <td><p>[description]</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
 
 
 
@@ -1710,12 +1735,49 @@ System</code>.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Constructor</p>
+      <p>Initialize handsoff plugin</p>
 
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>config</code></td>
+        <td><code>Config</code></td>
+        <td><p>Config of channel, hansdoff app, plugins, etc</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>settings</code></td>
+        <td><code>Any</code></td>
+        <td><p>Settinhs of the Daschat installation</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>data</code></td>
+        <td><code>dict</code></td>
+        <td><p>Additional data</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
         <details class="quote">
           <summary>Source code in <code>daschat_base/dc_abc_handoff.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Config</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Constructor&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Initialize handsoff plugin</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config (Config): Config of channel, hansdoff app, plugins, etc</span>
+<span class="sd">        settings (Any): Settinhs of the Daschat installation</span>
+<span class="sd">        data (dict): Additional data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span> <span class="n">Config</span> <span class="o">=</span> <span class="n">config</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">:</span> <span class="n">BaseSettings</span> <span class="o">=</span> <span class="n">settings</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">data</span>
@@ -1923,8 +1985,33 @@ any of it plugins/bots to handoff application chat agent</p>
 
     <div class="doc doc-contents ">
 
-      <p>An enumeration.</p>
+      <p>Webhook types processed by this plugin</p>
 
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>int</code></td>
+        <td><code>[type]</code></td>
+        <td><p>[description]</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>Enum</code></td>
+        <td><code>[type]</code></td>
+        <td><p>[description]</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
 
 
 
