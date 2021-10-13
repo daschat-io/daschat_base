@@ -1,5 +1,3 @@
-### :sparkles: New features
+### :pencil2: Fix typos
 
-#### :boom: Breaking changes
-
-* Added `info` method to `HandoffBase` class.
+* Proprerty `info` has same name as `info` method. Changed proprerty name to `info_data`.

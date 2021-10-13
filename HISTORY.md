@@ -1,5 +1,11 @@
 # History
 
+## 0.11.1 (2021-10-10)
+
+### :pencil2: Fix typos
+
+* Proprerty `info` has same name as `info` method. Changed proprerty name to `info_data`.
+
 ## 0.11.0 (2021-10-13)
 
 ### :sparkles: New features
