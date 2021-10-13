@@ -112,7 +112,7 @@ class HandoffBase(metaclass=ABCMeta):
     settings: BaseSettings
     media_bucket: str
     data_in: str
-    info: HandsoffInfoSchema
+    info_data: HandsoffInfoSchema
 
     def __init__(self, config: Config, settings: Any, data: dict, **kwargs):
         """Initialize handsoff plugin
