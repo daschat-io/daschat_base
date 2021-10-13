@@ -28,7 +28,14 @@ from loguru import logger
 from pydantic import BaseSettings
 
 # Application imports
-from .schemas import ActionToTypeEnum, Chat, Config, Contact, MessageSchema
+from .schemas import (
+    ActionToTypeEnum,
+    Chat,
+    Config,
+    Contact,
+    HandsoffInfoSchema,
+    MessageSchema,
+)
 
 
 class ChatIdTypesEnum(int, Enum):
@@ -105,6 +112,7 @@ class HandoffBase(metaclass=ABCMeta):
     settings: BaseSettings
     media_bucket: str
     data_in: str
+    info: HandsoffInfoSchema
 
     def __init__(self, config: Config, settings: Any, data: dict, **kwargs):
         """Initialize handsoff plugin
@@ -119,6 +127,20 @@ class HandoffBase(metaclass=ABCMeta):
         self.data: dict = data
         self.init_kwargs = kwargs
         self.media_bucket = f"s3://{settings.BUCKET_FS}"
+
+    @abstractmethod
+    async def info(self, full_info=True) -> bool:
+        """Get info about handsoff app
+
+        Args:
+            full_info (bool, optional): Get full info or only test connection. Defaults to True.
+
+        Raises:
+            NotImplementedError: When not implemented
+
+        Returns:
+            bool: True if can get info, False otherwise
+        """
 
     @abstractmethod
     async def webhook(self, data_in: dict, **kwargs) -> bool:

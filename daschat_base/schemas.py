@@ -377,3 +377,53 @@ class MessageSchema(BaseModel):
         example="This is a message content.",
     )
     metadata: Optional[MediaMetaData]
+
+
+class HandsoffInfoDataSchema(BaseModel):
+    class Config:
+        validate_assignment = True
+
+    version: str = Field(
+        ...,
+        max_length=64,
+        title="Version",
+        description="Handsoff app version.",
+        example="v4.0.1",
+    )
+    departments: Optional[List[Dict[str, Any]]] = Field(
+        [],
+        title="Departments",
+        description="Handsoff departments.",
+    )
+    agents: Optional[List[Dict[str, Any]]] = Field(
+        [],
+        title="Agents",
+        description="Handsoff agents.",
+    )
+    business_hours: Optional[List[Dict[str, Any]]] = Field(
+        [],
+        title="Business Hours",
+        description="Business hours of human attendants",
+    )
+
+
+class HandsoffInfoSchema(BaseModel):
+    class Config:
+        validate_assignment = True
+
+    success: bool = Field(
+        ...,
+        title="Success",
+        description="Handsoff app is online.",
+    )
+    status_code: int = Field(
+        200,
+        title="Status Code",
+        description="Request status code.",
+        example="200",
+        gt=99,
+        lt=600,
+    )
+    data: HandsoffInfoDataSchema = Field(
+        ..., title="Data", description="Handsoff app data."
+    )
