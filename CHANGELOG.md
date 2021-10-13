@@ -1,4 +1,5 @@
-### :pencil2: Fix typos
+### :sparkles: New features
 
-* Fixed variable names
-* Addittional doctrings
+#### :boom: Breaking changes
+
+* Added `info` method to `HandoffBase` class.

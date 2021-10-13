@@ -1,5 +1,13 @@
 # History
 
+## 0.11.0 (2021-10-13)
+
+### :sparkles: New features
+
+#### :boom: Breaking changes
+
+* Added `info` method to `HandoffBase` class.
+
 ## 0.10.1 (2021-10-10)
 
 ### :pencil2: Fix typos
