@@ -1,5 +1,9 @@
 # History
 
+## 0.12.0-dev (2021-10-20)
+
+* :sparkles: Added module `dc_abc_channel.py` with abstract class `ChannelBase` for channels plugins.
+
 ## 0.11.1 (2021-10-10)
 
 ### :pencil2: Fix typos

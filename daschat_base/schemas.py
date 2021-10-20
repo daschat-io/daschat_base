@@ -427,3 +427,60 @@ class HandsoffInfoSchema(BaseModel):
     data: HandsoffInfoDataSchema = Field(
         ..., title="Data", description="Handsoff app data."
     )
+
+
+class ChannelConfig(BaseModel):
+    class Config:
+        validate_assignment = True
+
+    app: str = Field(
+        ...,
+        max_length=255,
+        title="Label",
+        description="App ID",
+        example="Channel App ID",
+    )
+    channel_type: str = Field(
+        ...,
+        max_length=25,
+        title="Channel Type",
+        description="Channel type",
+        example="whatsapp",
+    )
+    endpoint: AnyHttpUrl = Field(
+        ...,
+        title="Api Endpoint",
+        description="Channel API endpoint. Needs to be HTTPS",
+        example="https://api.gupshup.io",
+    )
+    user: str = Field(
+        None,
+        max_length=256,
+        title="User",
+        description="Channel user if needed",
+        example="email@domain.com",
+    )
+    password: str = Field(
+        None,
+        max_length=64,
+        title="Password",
+        description="Channel password if needed",
+        example="SomeGoodPassword",
+    )
+    api_key: str = Field(
+        None,
+        max_length=256,
+        title="Api key",
+        description="Api key if needed",
+        example="ckasolg5o0001yvxuzdty0jrdckasnzjot0001p2xutk68nys8",
+    )
+    from_uid: str = Field(
+        ...,
+        max_length=255,
+        title="From UID",
+        description="Channel sender UID.",
+        example="5527999000000",
+    )
+    extra: Dict[str, Any] = Field(
+        {}, title="Extra", description="Additional data for the channel plugin."
+    )

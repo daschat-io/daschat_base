@@ -5,7 +5,7 @@
 import pytest
 
 from daschat_base import __author__, __email__, __version__
-from daschat_base.dc_abc_handoff import HandoffBase
+from daschat_base.dc_abc_channel import ChannelBase
 
 from . import current_author, current_email, current_version
 
@@ -38,6 +38,10 @@ def test_email() -> None:
     """Test package version number."""
     assert __email__ == current_email
 
+
+# def test_class_constructor() -> None:
+#     """Test package version number."""
+#     new_object =
 
 # @pytest.fixture
 # def response():
