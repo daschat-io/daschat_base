@@ -7,37 +7,7 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import AnyHttpUrl, BaseModel, Field, stricturl
 
-
-class MessageTypeEnum(str, Enum):
-    text = "text"
-    image = "image"
-    audio = "audio"
-    video = "video"
-    file = "file"
-    location = "location"
-    contact = "contact"
-    template = "template"
-    sticker = "sticker"
-
-
-class ActionToTypeEnum(str, Enum):
-    """ActionToTypeEnum
-
-    Actions types.
-    """
-
-    contact = "contact"
-    owner = "owner"
-    bot = "bot"
-    plugin = "plugin"
-    devops = "devops"
-    webhook = "webhook"
-    system = "system"
-
-
-# class DasFileUrl(AnyHttpUrl):
-#     allowed_schemes = ["https", "http"]
-#     tld_required = False
+from .types import MessageDispatchEnum, MessageTypeEnum
 
 
 class Config(BaseModel):
@@ -366,8 +336,14 @@ class MessageSchema(BaseModel):
     class Config:
         validate_assignment = True
 
+    dispatch: MessageDispatchEnum = Field(
+        MessageDispatchEnum.gateway,
+        title="Dispatch Module",
+        description="Dispatch message with this module",
+        example="gateway",
+    )
     message_type: MessageTypeEnum = Field(
-        MessageTypeEnum.text, title="Type", description="Message type.", example="text"
+        MessageTypeEnum.text, title="Type", description="Message type", example="text"
     )
     content: str = Field(
         ...,
