@@ -27,15 +27,10 @@ import cuid
 from loguru import logger
 from pydantic import BaseSettings
 
+from .schemas import Chat, Config, Contact, HandsoffInfoSchema, MessageSchema
+
 # Application imports
-from .schemas import (
-    ActionToTypeEnum,
-    Chat,
-    Config,
-    Contact,
-    HandsoffInfoSchema,
-    MessageSchema,
-)
+from .types import ActionToTypeEnum
 
 
 class ChatIdTypesEnum(int, Enum):
@@ -68,8 +63,8 @@ class WebhookTypesEnum(int, Enum):
     CHAT_FORWARDED = 51
     MESSAGE = 60
 
-    def __repr__(self):
-        return self.value
+    # def __repr__(self):
+    #     return self.value
 
 
 # Acceptable medias
