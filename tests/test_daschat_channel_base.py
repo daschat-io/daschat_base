@@ -6,8 +6,9 @@ import pytest
 
 from daschat_base import __author__, __email__, __version__
 from daschat_base.dc_abc_channel import ChannelBase
+from daschat_base.version import VERSION
 
-from . import current_author, current_email, current_version
+from . import current_author, current_email
 
 # current_version = "0.11.1"
 # current_author = "Daschat.io"
@@ -26,7 +27,7 @@ from . import current_author, current_email, current_version
 
 def test_version() -> None:
     """Test package version number."""
-    assert __version__ == current_version
+    assert __version__ == VERSION
 
 
 def test_author() -> None:

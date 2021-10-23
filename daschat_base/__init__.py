@@ -10,3 +10,15 @@ except DistributionNotFound:
 
 __author__ = "Daschat.io"
 __email__ = "admin@daschat.io"
+
+try:
+    import cython  # type: ignore
+except ImportError:
+    compiled: bool = False
+else:  # pragma: no cover
+    try:
+        compiled = cython.compiled
+    except AttributeError:
+        compiled = False
+
+__all__ = "__version__", "__author__", "__email__", "compiled"
