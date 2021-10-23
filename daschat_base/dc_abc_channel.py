@@ -27,9 +27,7 @@ import cuid
 from loguru import logger
 from pydantic import BaseSettings
 
-# Application imports
 from .schemas import (
-    ActionToTypeEnum,
     ChannelConfig,
     Chat,
     Config,
@@ -37,6 +35,9 @@ from .schemas import (
     HandsoffInfoSchema,
     MessageSchema,
 )
+
+# Application imports
+from .types import ActionToTypeEnum
 
 
 class ChatIdTypesEnum(int, Enum):
