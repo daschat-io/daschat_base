@@ -5,7 +5,7 @@
 import pytest
 
 from daschat_base import __author__, __email__, __version__
-from daschat_base.dc_abc_handoff import HandoffBase
+from daschat_base.dc_abc_handoff import HandoffBase, WebhookTypesEnum
 
 from . import current_author, current_email, current_version
 
@@ -37,6 +37,15 @@ def test_author() -> None:
 def test_email() -> None:
     """Test package version number."""
     assert __email__ == current_email
+
+
+def test_enums() -> None:
+    """Test package enums."""
+    assert WebhookTypesEnum.CHAT_SESSION == WebhookTypesEnum.CHAT_SESSION.value
+    assert WebhookTypesEnum.CHAT_FORWARDED == 51
+    assert WebhookTypesEnum.MESSAGE == WebhookTypesEnum.MESSAGE
+    assert WebhookTypesEnum.CHAT_QUEUED < 31
+    assert WebhookTypesEnum.CHAT_QUEUED < WebhookTypesEnum.MESSAGE
 
 
 # @pytest.fixture

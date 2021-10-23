@@ -53,6 +53,8 @@ class ChatIdTypesEnum(int, Enum):
 class WebhookTypesEnum(int, Enum):
     """Webhook types processed by this plugin
 
+    https://stackoverflow.com/questions/24487405/enum-getting-value-of-enum-on-string-conversion
+
     Args:
         int ([type]): [description]
         Enum ([type]): [description]
@@ -63,7 +65,11 @@ class WebhookTypesEnum(int, Enum):
     CHAT_QUEUED = 30
     CHAT_SESSION = 40
     CHAT_TAKEN = 50
+    CHAT_FORWARDED = 51
     MESSAGE = 60
+
+    def __repr__(self):
+        return self.value
 
 
 # Acceptable medias
