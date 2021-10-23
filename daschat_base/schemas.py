@@ -377,6 +377,20 @@ class MessageSchema(BaseModel):
         example="This is a message content.",
     )
     metadata: Optional[MediaMetaData]
+    agent_id: str = Field(
+        None,
+        max_length=64,
+        title="Agent ID",
+        description="ID of the agent who wrote the message.",
+        example="BxdYnAjpu3PTciw6Z",
+    )
+    agent_name: str = Field(
+        "Bot",
+        max_length=64,
+        title="Agent Name",
+        description="Name of the agent.",
+        example="Ruth A.",
+    )
 
 
 class HandsoffInfoDataSchema(BaseModel):
