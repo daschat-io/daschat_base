@@ -355,17 +355,24 @@ class MessageSchema(BaseModel):
     metadata: Optional[MediaMetaData]
     agent_id: str = Field(
         None,
-        max_length=64,
+        max_length=128,
         title="Agent ID",
         description="ID of the agent who wrote the message.",
         example="BxdYnAjpu3PTciw6Z",
     )
     agent_name: str = Field(
         "Bot",
-        max_length=64,
+        max_length=128,
         title="Agent Name",
         description="Name of the agent.",
         example="Ruth A.",
+    )
+    Department: str = Field(
+        "General",
+        max_length=128,
+        title="Department",
+        description="Department associated with the message.",
+        example="Department",
     )
 
 
