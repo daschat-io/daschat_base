@@ -474,3 +474,51 @@ class ChannelConfig(BaseModel):
     extra: Dict[str, Any] = Field(
         {}, title="Extra", description="Additional data for the channel plugin."
     )
+
+
+class ResultFieldSchema(BaseModel):
+    class Config:
+        validate_assignment = True
+
+    status: bool = Field(
+        True,
+        title="Status",
+        description="Call result status.",
+    )
+    msg_id: str = Field(
+        "SUCCESS",
+        max_length=32,
+        title="Message ID",
+        description="Result message ID in Daschat.",
+        example="SUCCESS",
+    )
+    text: str = Field(
+        "Success",
+        max_length=255,
+        title="Result message",
+        description="Result text message or text template message.",
+        example="Message sent",
+    )
+    params: dict = Field(
+        {},
+        title="Params",
+        description="Params for the result template message.",
+        example="",
+    )
+
+
+class DispatchCallOutSchema(BaseModel):
+    class Config:
+        validate_assignment = True
+
+    result: ResultFieldSchema = Field(
+        ...,
+        title="Result",
+        description="Result of the dispatch module call.",
+    )
+    messages: Optional[List[MessageSchema]] = Field(
+        [],
+        title="Messages",
+        description="Messages from dispatch module to be delivered by Daschat.",
+        example="See schema MessageSchema",
+    )
