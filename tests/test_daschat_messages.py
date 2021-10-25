@@ -15,9 +15,9 @@ def test_msg_result() -> None:
     assert data.result.msg_id == "NO_AGENT_ONLINE"
     assert len(data.result.params) == 0
     data = DispatchCallOutSchema(
-        result=msg_result(True, "DEBUG"),
-        param1="value1",
-        param2={"field1": "field1_value"},
+        result=msg_result(
+            True, "DEBUG", param1="value1", param2={"field1": "field1_value"}
+        )
     )
     assert type(data.result) == ResultFieldSchema
     assert data.result.msg_id == "DEBUG"
