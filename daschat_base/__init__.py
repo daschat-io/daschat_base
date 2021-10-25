@@ -3,8 +3,10 @@
 
 from pkg_resources import DistributionNotFound, get_distribution
 
+from daschat_base.version import VERSION
+
 try:
-    __version__ = get_distribution("daschat_base").version
+    __version__ = VERSION  # get_distribution("daschat_base").version
 except DistributionNotFound:
     __version__ = "(local)"
 
