@@ -19,7 +19,7 @@ def test_msg_result() -> None:
         param1="value1",
         param2={"field1": "field1_value"},
     )
-    assert data.result == ResultFieldSchema
+    assert type(data.result) == ResultFieldSchema
     assert data.result.msg_id == "DEBUG"
     assert len(data.result.params) == 2
     assert data.result.params["param1"] == "value1"
