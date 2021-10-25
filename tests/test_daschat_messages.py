@@ -77,9 +77,7 @@ def test_msg_dict() -> None:
     assert type(data) == dict
     assert data["msg_id"] == "NO_AGENT_ONLINE"
     assert len(data["params"]) == 0
-    data = msg_dict(
-        "MY_APP_CUSTOM_DEBUG", param1="value1", param2={"field1": "field1_value"}
-    )
+    data = msg_dict("DEBUG", param1="value1", param2={"field1": "field1_value"})
     assert type(data) == dict
     assert data["msg_id"] == "DEBUG"
     assert len(data["params"]) == 2
