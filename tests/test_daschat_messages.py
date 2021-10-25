@@ -11,7 +11,7 @@ from daschat_base.schemas import DispatchCallOutSchema, ResultFieldSchema
 def test_msg_result() -> None:
     """Test generation of result data."""
     data = DispatchCallOutSchema(result=msg_result(True, "NO_AGENT_ONLINE"))
-    assert data.result == ResultFieldSchema
+    assert type(data.result) == ResultFieldSchema
     assert data.result.msg_id == "NO_AGENT_ONLINE"
     assert len(data.result.params) == 0
     data = DispatchCallOutSchema(
