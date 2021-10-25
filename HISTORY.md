@@ -1,5 +1,11 @@
 # History
 
+## 0.13.1 (2021-10-25)
+
+### :speech_balloon: Add or update text and literals
+
+* Added more messages to `messages.py` and custom message factories.
+
 ## 0.13.0 (2021-10-25)
 
 ### :label: Add or update types
