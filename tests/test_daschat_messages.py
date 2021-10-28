@@ -17,6 +17,8 @@ def test_result_factory() -> None:
     assert data.result.id == "SUCCESS"
     assert len(data.result.params) == 0
 
+
+def test_result_factory_with_params() -> None:
     data2 = DispatchCallOutSchema(
         result=result_factory(MSGS.not_logged_in, user="abner")
     )
