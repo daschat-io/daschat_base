@@ -1,5 +1,13 @@
-## 0.13.1 (2021-10-25)
+## 0.14.0 (2021-10-25)
 
-### :speech_balloon: Add or update text and literals
+### :building_construction:
 
-* Added more messages to `messages.py` and custom message factories.
+#### :boom: Breaking changes
+
+##### :label: Add or update types
+
+* Changed `ResultFieldSchema` schema renaming field `msg_id` to `id` and removed `text` field.
+
+##### :recycle: Refactor code
+
+* Refactored `messages.py`.
