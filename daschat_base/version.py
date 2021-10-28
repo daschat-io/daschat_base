@@ -1,5 +1,3 @@
-__all__ = "VERSION", "version_info"
-
 VERSION = "0.14.0"
 
 

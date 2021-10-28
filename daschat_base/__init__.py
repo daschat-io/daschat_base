@@ -23,4 +23,4 @@ else:  # pragma: no cover
     except AttributeError:
         compiled = False
 
-__all__ = "__version__", "__author__", "__email__", "compiled"
+# __all__ = "__version__", "__author__", "__email__", "compiled"
