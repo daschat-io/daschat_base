@@ -90,9 +90,10 @@ def result_factory(msg: Result, **kwargs) -> ResultFieldSchema:
     """
     call_params: int = len(kwargs)
     msg_params: int = len(msg.params)
-    result: ResultFieldSchema = deepcopy(
-        ResultFieldSchema(msg_id=msg.id, status=msg.status)
-    )
+    params: dict = {}
+    # result: ResultFieldSchema = deepcopy(
+    #     ResultFieldSchema(msg_id=msg.id, status=msg.status)
+    # )
 
     if call_params > 0 and msg_params == 0:
         raise ValueError("This message do not accept params")
@@ -114,6 +115,6 @@ def result_factory(msg: Result, **kwargs) -> ResultFieldSchema:
                     raise ValueError(
                         f"Wrong parameter size: '{k}' must be between {param_def.min_size} and {param_def.max_size}"
                     )
-            result.params[k] = kwargs[k]
+            params[k] = kwargs[k]
 
-    return result
+    return ResultFieldSchema(msg_id=msg.id, status=msg.status, params=params)
