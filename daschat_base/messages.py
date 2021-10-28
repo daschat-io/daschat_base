@@ -10,7 +10,7 @@ from typing import Any, List, Optional
 from pydantic import BaseModel, Field
 from typing_extensions import Annotated
 
-from .schemas import ResultFieldSchema
+from .schemas import DispatchCallOutSchema, ResultFieldSchema
 
 
 class Param(BaseModel):
@@ -116,3 +116,58 @@ def result_factory(msg: Result, **kwargs) -> ResultFieldSchema:
             params[k] = kwargs[k]
 
     return ResultFieldSchema(msg_id=msg.id, status=msg.status, params=params)
+
+
+def dispatch_factory(msg: Result, **kwargs) -> DispatchCallOutSchema:
+    """result_factory Generate result as expected by Daschat
+
+    Examples:
+        from daschat_base.messages import MSGS, msg_factory
+        msg_factory(MSGS.success)
+        msg_factory(MSGS.not_logged_in, user="abner")
+
+    Args:
+        msg (Result): Any result type in the MSGS contant
+
+    Raises:
+        ValueError: Parameter name not allowed
+        ValueError: Result don't accept params
+        ValueError: Wrong number of params
+        ValueError: Wrong parameter type
+        ValueError: Wrong parameter size
+
+    Returns:
+        ResultFieldSchema: [description]
+    """
+    call_params: int = len(kwargs)
+    msg_params: int = len(msg.params)
+    params: dict = {}
+    # result: ResultFieldSchema = deepcopy(
+    #     ResultFieldSchema(msg_id=msg.id, status=msg.status)
+    # )
+
+    if call_params > 0 and msg_params == 0:
+        raise ValueError("This message do not accept params")
+    if not call_params == msg_params:
+        raise ValueError(
+            f"Wrong number of params. This message only accepts {msg_params} parameter(s)"
+        )
+    if len(kwargs) > 0:
+        for k in kwargs:
+            param_def = next((item for item in msg.params if item.name == k), None)
+            if param_def is None:
+                raise ValueError(f"This parameter name is not allowed: {k}")
+            if not type(kwargs[k]) == param_def.type:
+                raise ValueError(
+                    f"Wrong parameter type: '{k}' must be {param_def.type}"
+                )
+            if param_def.type == str:
+                if not param_def.min_size <= len(kwargs[k]) <= param_def.max_size:
+                    raise ValueError(
+                        f"Wrong parameter size: '{k}' must be between {param_def.min_size} and {param_def.max_size}"
+                    )
+            params[k] = kwargs[k]
+
+    return DispatchCallOutSchema(
+        result=ResultFieldSchema(msg_id=msg.id, status=msg.status, params=params)
+    )
