@@ -7,7 +7,7 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any, List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Extra, Field
 from typing_extensions import Annotated
 
 from .schemas import DispatchCallOutSchema, ResultFieldSchema
@@ -17,6 +17,7 @@ class Param(BaseModel):
     class Config:
         allow_population_by_field_name = True
         allow_mutation = False
+        extra = Extra.forbid
 
     name: str
     type: Any
@@ -28,6 +29,7 @@ class Result(BaseModel):
     class Config:
         allow_population_by_field_name = True
         allow_mutation = False
+        extra = Extra.forbid
 
     id: str
     status: bool
@@ -40,6 +42,7 @@ class SystemDispatchMessages(BaseModel):
     class Config:
         allow_population_by_field_name = True
         allow_mutation = False
+        extra = Extra.forbid
 
     info: Optional[Annotated[Result, Field(alias="INFO")]]
     success: Optional[Annotated[Result, Field(alias="SUCCESS")]]
@@ -89,9 +92,6 @@ def result_factory(msg: Result, **kwargs) -> ResultFieldSchema:
     call_params: int = len(kwargs)
     msg_params: int = len(msg.params)
     params: dict = {}
-    # result: ResultFieldSchema = deepcopy(
-    #     ResultFieldSchema(msg_id=msg.id, status=msg.status)
-    # )
 
     if call_params > 0 and msg_params == 0:
         raise ValueError("This message do not accept params")
@@ -115,7 +115,7 @@ def result_factory(msg: Result, **kwargs) -> ResultFieldSchema:
                     )
             params[k] = kwargs[k]
 
-    return ResultFieldSchema(msg_id=msg.id, status=msg.status, params=params)
+    return ResultFieldSchema(id=msg.id, status=msg.status, params=params)
 
 
 def dispatch_factory(msg: Result, **kwargs) -> DispatchCallOutSchema:
@@ -142,9 +142,6 @@ def dispatch_factory(msg: Result, **kwargs) -> DispatchCallOutSchema:
     call_params: int = len(kwargs)
     msg_params: int = len(msg.params)
     params: dict = {}
-    # result: ResultFieldSchema = deepcopy(
-    #     ResultFieldSchema(msg_id=msg.id, status=msg.status)
-    # )
 
     if call_params > 0 and msg_params == 0:
         raise ValueError("This message do not accept params")
@@ -169,5 +166,5 @@ def dispatch_factory(msg: Result, **kwargs) -> DispatchCallOutSchema:
             params[k] = kwargs[k]
 
     return DispatchCallOutSchema(
-        result=ResultFieldSchema(msg_id=msg.id, status=msg.status, params=params)
+        result=ResultFieldSchema(id=msg.id, status=msg.status, params=params)
     )

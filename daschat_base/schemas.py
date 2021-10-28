@@ -5,7 +5,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from pydantic import AnyHttpUrl, BaseModel, Field, stricturl
+from pydantic import AnyHttpUrl, BaseModel, Extra, Field, stricturl
 
 from .types import MessageDispatchEnum, MessageTypeEnum
 
@@ -486,6 +486,7 @@ class ChannelConfig(BaseModel):
 class ResultFieldSchema(BaseModel):
     class Config:
         validate_assignment = True
+        extra = Extra.forbid
 
     status: bool = Field(
         True,
@@ -510,6 +511,7 @@ class ResultFieldSchema(BaseModel):
 class DispatchCallOutSchema(BaseModel):
     class Config:
         validate_assignment = True
+        extra = Extra.forbid
 
     result: ResultFieldSchema = Field(
         ...,
