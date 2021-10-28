@@ -492,25 +492,18 @@ class ResultFieldSchema(BaseModel):
         title="Status",
         description="Call result status.",
     )
-    msg_id: str = Field(
+    id: str = Field(
         "SUCCESS",
         max_length=32,
-        title="Message ID",
+        title="Result ID",
         description="Result message ID in Daschat.",
         example="SUCCESS",
-    )
-    text: str = Field(
-        "Success",
-        max_length=255,
-        title="Result message",
-        description="Result text message or text template message.",
-        example="Message sent",
     )
     params: dict = Field(
         {},
         title="Params",
-        description="Params for the result template message.",
-        example="",
+        description="Params for the result message.",
+        example={"user": "theusername"},
     )
 
 
