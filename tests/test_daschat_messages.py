@@ -37,12 +37,12 @@ def test_result_factory_with_params() -> None:
     assert len(data.result.params["user"]) == 5
     assert data.result.id == "LOGGED_IN"
 
-    data = dispatch_factory(msg=MSGS.not_logged_in, user="abner")
+    data = dispatch_factory(msg=MSGS.unable_to_create_contact, contact="ContactId")
     assert type(data) == DispatchCallOutSchema
     assert type(data.result) == ResultFieldSchema
     assert data.result.status is False
     assert len(data.result.params) == 1
-    assert data.result.params["user"] == "abner"
-    assert type(data.result.params["user"]) == str
-    assert len(data.result.params["user"]) == 5
-    assert data.result.id == "NOT_LOGGED_IN"
+    assert data.result.params["contact"] == "ContactId"
+    assert type(data.result.params["contact"]) == str
+    assert len(data.result.params["contact"]) == 9
+    assert data.result.id == "UNABLE_TO_CREATE_CONTACT"

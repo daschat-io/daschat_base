@@ -91,6 +91,11 @@ MSGS = SystemDispatchMessages(
         id="LOGGED_IN",
         status=True,
     ),
+    unable_to_create_contact=Result(
+        id="UNABLE_TO_CREATE_CONTACT",
+        status=False,
+        params=[{"name": "contact", "type": str, "min_size": 1, "max_size": 256}],
+    ),
 )
 
 
