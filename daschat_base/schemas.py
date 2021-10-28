@@ -493,7 +493,7 @@ class ResultFieldSchema(BaseModel):
         description="Call result status.",
     )
     id: str = Field(
-        "SUCCESS",
+        ...,
         max_length=32,
         title="Result ID",
         description="Result message ID in Daschat.",
