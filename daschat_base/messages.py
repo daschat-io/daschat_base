@@ -2,63 +2,115 @@
 
 
 """
-from copy import deepcopy
+from __future__ import annotations
+
+from typing import Any, List, Optional
+
+from pydantic import BaseModel, Field
+from typing_extensions import Annotated
 
 from .schemas import ResultFieldSchema
 
-__all__ = "msg_result", "msg_dict", "msg_result_custom", "msg_dict_custom"
-
-MSGS = {
-    "DEBUG": {"text": "Debug", "params": {}},
-    "INFO": {"text": "Info", "params": {}},
-    "WARNING": {"text": "Warning", "params": {}},
-    "ERROR": {"text": "Error", "params": {}},
-    "CRITICAL": {"text": "Critical", "params": {}},
-    "SUCCESS": {"text": "Success", "params": {}},
-    "NO_AGENT_ONLINE": {"text": "Desculpe, nenhum agente online", "params": {}},
-    "NOT_LOGGET_IN": {"text": "Não logado", "params": {}},
-    "UNABLE_TO_LOGIN": {"text": "Não foi possível fazer login", "params": {}},
-    "UNABLE_TO_REGISTER_CONTACT": {
-        "text": "Não foi possível registrar o contato",
-        "params": {},
-    },
-    "BAD_REQUEST": {"text": "Bad HTTP request", "params": {}},
-    "FAILED": {"text": "Failed HTTP request", "params": {}},
-    "CONNECTION_FAIL": {"text": "Failed HTTP connection", "params": {}},
-}
+__all__ = "MSGS", "result_factory"
 
 
-def msg_result(status: bool, msg_id: str, **kwargs) -> ResultFieldSchema:
-    msg = deepcopy(MSGS[msg_id])
-    print(MSGS[msg_id])
-    result = ResultFieldSchema(status=status, msg_id=msg_id, **msg)
+class Param(BaseModel):
+    class Config:
+        allow_population_by_field_name = True
+        allow_mutation = False
+
+    name: str
+    type: Any
+    min_size: Optional[int] = 1
+    max_size: Optional[int] = 64
+
+
+class Result(BaseModel):
+    class Config:
+        allow_population_by_field_name = True
+        allow_mutation = False
+
+    id: str
+    status: bool
+    params: Optional[
+        List[Annotated[Param, Field(title="Params", description="Params List")]]
+    ] = []
+
+
+class SystemDispatchMessages(BaseModel):
+    class Config:
+        allow_population_by_field_name = True
+        allow_mutation = False
+
+    info: Optional[Annotated[Result, Field(alias="INFO")]]
+    success: Optional[Annotated[Result, Field(alias="SUCCESS")]]
+    error: Optional[Annotated[Result, Field(alias="ERROR")]]
+    not_logged_in: Optional[Annotated[Result, Field(alias="NOT_LOGGED_IN")]]
+    logged_in: Optional[Annotated[Result, Field(alias="LOGGET_IN")]]
+
+
+MSGS = SystemDispatchMessages(
+    info=Result(id="INFO", status=True),
+    success=Result(id="SUCCESS", status=True),
+    error=Result(id="ERROR", status=False, params=[{"name": "message", "type": str}]),
+    not_logged_in=Result(
+        id="NOT_LOGGED_IN",
+        status=False,
+        params=[{"name": "user", "type": str, "min_size": 1, "max_size": 256}],
+    ),
+    logged_in=Result(
+        id="LOGGET_IN",
+        status=True,
+        params=[{"name": "user", "type": str, "min_size": 1, "max_size": 256}],
+    ),
+)
+
+
+def result_factory(msg: Result, **kwargs) -> ResultFieldSchema:
+    """result_factory Generate result as expected by Daschat
+
+    Examples:
+        from daschat_base.messages import MSGS, msg_factory
+        msg_factory(MSGS.success)
+        msg_factory(MSGS.not_logged_in, user="abner")
+
+    Args:
+        msg (Result): Any result type in the MSGS contant
+
+    Raises:
+        ValueError: Parameter name not allowed
+        ValueError: Result don't accept params
+        ValueError: Wrong number of params
+        ValueError: Wrong parameter type
+        ValueError: Wrong parameter size
+
+    Returns:
+        ResultFieldSchema: [description]
+    """
+    call_params: int = len(kwargs)
+    msg_params: int = len(msg.params)
+    result: ResultFieldSchema = ResultFieldSchema(msg_id=msg.id, status=msg.status)
+
+    if call_params > 0 and msg_params == 0:
+        raise ValueError("This message do not accept params")
+    if not call_params == msg_params:
+        raise ValueError(
+            f"Wrong number of params. This message only accepts {msg_params} parameter(s)"
+        )
     if len(kwargs) > 0:
-        result.params = kwargs
-    return result
+        for k in kwargs:
+            param_def = next((item for item in msg.params if item.name == k), None)
+            if param_def is None:
+                raise ValueError(f"This parameter name is not allowed: {k}")
+            if not type(kwargs[k]) == param_def.type:
+                raise ValueError(
+                    f"Wrong parameter type: '{k}' must be {param_def.type}"
+                )
+            if param_def.type == str:
+                if not param_def.min_size <= len(kwargs[k]) <= param_def.max_size:
+                    raise ValueError(
+                        f"Wrong parameter size: '{k}' must be between {param_def.min_size} and {param_def.max_size}"
+                    )
+            result.params[k] = kwargs[k]
 
-
-def msg_result_custom(
-    status: bool, msg_id: str, text: str, **kwargs
-) -> ResultFieldSchema:
-    result = ResultFieldSchema(status=status, msg_id=msg_id, text=text)
-    if len(kwargs) > 0:
-        result.params = kwargs
-    return result
-
-
-def msg_dict(msg_id: str, **kwargs) -> dict:
-    result = deepcopy(MSGS[msg_id])
-    result["msg_id"] = msg_id
-    if len(kwargs) > 0:
-        result["params"] = kwargs
-    return result
-
-
-def msg_dict_custom(msg_id: str, text: str, **kwargs) -> dict:
-    result = {}
-    result["msg_id"] = msg_id
-    result["text"] = text
-    result["params"] = {}
-    if len(kwargs) > 0:
-        result["params"] = kwargs
     return result
