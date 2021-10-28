@@ -23,7 +23,7 @@ def test_result_factory() -> None:
     assert type(data) == DispatchCallOutSchema
     assert type(data.result) == ResultFieldSchema
     assert data.result.status is False
-    assert data.result.msg_id == "NOT_LOGGED_IN"
+    assert data.result.id == "NOT_LOGGED_IN"
     assert len(data.result.params) == 1
     assert data.result.params["user"] == "abner"
     assert type(data.result.params["user"]) == str
