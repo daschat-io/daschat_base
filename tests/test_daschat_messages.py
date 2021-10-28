@@ -27,15 +27,15 @@ def test_result_factory() -> None:
 
 def test_result_factory_with_params() -> None:
     """Test generation of result messages with params."""
-    data = dispatch_factory(msg=MSGS.logged_in, user="abner")
+    data = dispatch_factory(msg=MSGS.info, message="abner")
     assert type(data) == DispatchCallOutSchema
     assert type(data.result) == ResultFieldSchema
     assert data.result.status is True
     assert len(data.result.params) == 1
-    assert data.result.params["user"] == "abner"
-    assert type(data.result.params["user"]) == str
-    assert len(data.result.params["user"]) == 5
-    assert data.result.id == "LOGGED_IN"
+    assert data.result.params["message"] == "abner"
+    assert type(data.result.params["message"]) == str
+    assert len(data.result.params["message"]) == 5
+    assert data.result.id == "INFO"
 
     data = dispatch_factory(msg=MSGS.unable_to_create_contact, contact="ContactId")
     assert type(data) == DispatchCallOutSchema
