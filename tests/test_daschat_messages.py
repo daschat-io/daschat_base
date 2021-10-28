@@ -9,7 +9,7 @@ from daschat_base.schemas import DispatchCallOutSchema, ResultFieldSchema
 
 
 def test_result_factory() -> None:
-    """Test generation of result data."""
+    """Test generation of result data without params."""
     data = DispatchCallOutSchema(result=result_factory(MSGS.success))
     assert type(data) == DispatchCallOutSchema
     assert type(data.result) == ResultFieldSchema
@@ -17,8 +17,16 @@ def test_result_factory() -> None:
     assert data.result.id == "SUCCESS"
     assert len(data.result.params) == 0
 
+    data = DispatchCallOutSchema(result=result_factory(MSGS.no_agent_online))
+    assert type(data) == DispatchCallOutSchema
+    assert type(data.result) == ResultFieldSchema
+    assert data.result.status is False
+    assert data.result.id == "NO_AGENT_ONLINE"
+    assert len(data.result.params) == 0
+
 
 def test_result_factory_with_params() -> None:
+    """Test generation of result messages with params."""
     data = dispatch_factory(msg=MSGS.logged_in, user="abner")
     assert type(data) == DispatchCallOutSchema
     assert type(data.result) == ResultFieldSchema

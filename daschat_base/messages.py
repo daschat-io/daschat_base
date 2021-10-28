@@ -43,17 +43,45 @@ class SystemDispatchMessages(BaseModel):
         allow_mutation = False
         extra = Extra.forbid
 
+    # Low level messages
     info: Optional[Annotated[Result, Field(alias="INFO")]]
-    success: Optional[Annotated[Result, Field(alias="SUCCESS")]]
+    warning: Optional[Annotated[Result, Field(alias="WARNING")]]
     error: Optional[Annotated[Result, Field(alias="ERROR")]]
+    critical: Optional[Annotated[Result, Field(alias="CRITICAL")]]
+
+    # Daschat messages
+    success: Optional[Annotated[Result, Field(alias="SUCCESS")]]
+    no_agent_online: Optional[Annotated[Result, Field(alias="NO_AGENT_ONLINE")]]
+    unable_to_create_contact: Optional[
+        Annotated[Result, Field(alias="UNABLE_TO_CREATE_CONTACT")]
+    ]
     not_logged_in: Optional[Annotated[Result, Field(alias="NOT_LOGGED_IN")]]
     logged_in: Optional[Annotated[Result, Field(alias="LOGGED_IN")]]
 
 
 MSGS = SystemDispatchMessages(
-    info=Result(id="INFO", status=True),
+    info=Result(
+        id="INFO",
+        status=True,
+        params=[{"name": "message", "type": str, "max_size": 1024}],
+    ),
+    warning=Result(
+        id="WARNING",
+        status=True,
+        params=[{"name": "message", "type": str, "max_size": 1024}],
+    ),
+    error=Result(
+        id="ERROR",
+        status=False,
+        params=[{"name": "message", "type": str, "max_size": 1024}],
+    ),
+    critical=Result(
+        id="CRITICAL",
+        status=False,
+        params=[{"name": "message", "type": str, "max_size": 1024}],
+    ),
     success=Result(id="SUCCESS", status=True),
-    error=Result(id="ERROR", status=False, params=[{"name": "message", "type": str}]),
+    no_agent_online=Result(id="NO_AGENT_ONLINE", status=False),
     not_logged_in=Result(
         id="NOT_LOGGED_IN",
         status=False,
@@ -62,7 +90,6 @@ MSGS = SystemDispatchMessages(
     logged_in=Result(
         id="LOGGED_IN",
         status=True,
-        params=[{"name": "user", "type": str, "min_size": 1, "max_size": 256}],
     ),
 )
 
