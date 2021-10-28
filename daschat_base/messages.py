@@ -4,6 +4,7 @@
 """
 from __future__ import annotations
 
+from copy import deepcopy
 from typing import Any, List, Optional
 
 from pydantic import BaseModel, Field
@@ -89,7 +90,9 @@ def result_factory(msg: Result, **kwargs) -> ResultFieldSchema:
     """
     call_params: int = len(kwargs)
     msg_params: int = len(msg.params)
-    result: ResultFieldSchema = ResultFieldSchema(msg_id=msg.id, status=msg.status)
+    result: ResultFieldSchema = deepcopy(
+        ResultFieldSchema(msg_id=msg.id, status=msg.status)
+    )
 
     if call_params > 0 and msg_params == 0:
         raise ValueError("This message do not accept params")
