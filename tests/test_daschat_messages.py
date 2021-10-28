@@ -19,7 +19,7 @@ def test_result_factory() -> None:
 
 
 def test_result_factory_with_params() -> None:
-    data2 = dispatch_factory(result=result_factory(MSGS.not_logged_in, user="abner"))
+    data2 = dispatch_factory(msg=MSGS.not_logged_in, user="abner")
     assert type(data2) == DispatchCallOutSchema
     assert type(data2.result) == ResultFieldSchema
     assert data2.result.status is False
