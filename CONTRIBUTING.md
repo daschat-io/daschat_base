@@ -111,7 +111,7 @@ Make sure all your changes for version are committed in `pyproject.toml` and `te
 Then run:
 
 ```
-$ git tag v0.7.0
+$ git tag -a v0.14.0 -m "Version 0.14.0"
 $ git push
 $ git push --tags
 ```
