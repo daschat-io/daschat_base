@@ -1,10 +1,9 @@
-""" DasChat standard messages text
+""" DasChat standard result types
 
 
 """
 from __future__ import annotations
 
-from copy import deepcopy
 from typing import Any, List, Optional
 
 from pydantic import BaseModel, Extra, Field
@@ -48,7 +47,7 @@ class SystemDispatchMessages(BaseModel):
     success: Optional[Annotated[Result, Field(alias="SUCCESS")]]
     error: Optional[Annotated[Result, Field(alias="ERROR")]]
     not_logged_in: Optional[Annotated[Result, Field(alias="NOT_LOGGED_IN")]]
-    logged_in: Optional[Annotated[Result, Field(alias="LOGGET_IN")]]
+    logged_in: Optional[Annotated[Result, Field(alias="LOGGED_IN")]]
 
 
 MSGS = SystemDispatchMessages(
@@ -61,7 +60,7 @@ MSGS = SystemDispatchMessages(
         params=[{"name": "user", "type": str, "min_size": 1, "max_size": 256}],
     ),
     logged_in=Result(
-        id="LOGGET_IN",
+        id="LOGGED_IN",
         status=True,
         params=[{"name": "user", "type": str, "min_size": 1, "max_size": 256}],
     ),
