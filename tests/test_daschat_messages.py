@@ -17,14 +17,14 @@ def test_result_factory() -> None:
     assert data.result.id == "SUCCESS"
     assert len(data.result.params) == 0
 
-    data = DispatchCallOutSchema(
+    data2 = DispatchCallOutSchema(
         result=result_factory(MSGS.not_logged_in, user="abner")
     )
-    assert type(data) == DispatchCallOutSchema
-    assert type(data.result) == ResultFieldSchema
-    assert data.result.status is False
-    assert data.result.id == "NOT_LOGGED_IN"
-    assert len(data.result.params) == 1
-    assert data.result.params["user"] == "abner"
-    assert type(data.result.params["user"]) == str
-    assert len(data.result.params["user"]) == 5
+    assert type(data2) == DispatchCallOutSchema
+    assert type(data2.result) == ResultFieldSchema
+    assert data2.result.status is False
+    assert data2.result.id == "NOT_LOGGED_IN"
+    assert len(data2.result.params) == 1
+    assert data2.result.params["user"] == "abner"
+    assert type(data2.result.params["user"]) == str
+    assert len(data2.result.params["user"]) == 5
