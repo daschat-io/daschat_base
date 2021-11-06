@@ -1,5 +1,11 @@
 # History
 
+## 0.15.0 (2021-11-06)
+
+### :building_construction:
+
+* Added support for Python 3.7
+
 ## 0.14.0 (2021-10-25)
 
 ### :building_construction:
