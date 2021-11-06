@@ -4,70 +4,80 @@ repo_url: https://github.com/daschat-io/daschat_base
 repo_name: daschat_base
 #strict: true
 nav:
-    - home: index.md
-    - installation: installation.md
-    - usage: usage.md
-    - modules: api.md
-    - contributing: contributing.md
-    - authors: authors.md
-    - history: history.md
+  - home: index.md
+  - installation: installation.md
+  - usage: usage.md
+  - modules: api.md
+  - contributing: contributing.md
+  - authors: authors.md
+  - history: history.md
 theme:
-    name: material
-    language: en
-    #logo: assets/logo.png
-    palette:
-        primary: light blue
-    features:
-        - navigation.indexes
-        - navigation.tabs
-        - navigation.instant
-        - navigation.tabs.sticky
+  name: material
+  language: en
+  #logo: assets/logo.png
+  palette:
+    primary: light blue
+  features:
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tabs.sticky
 markdown_extensions:
-    - pymdownx.emoji:
-          emoji_index: !!python/name:materialx.emoji.twemoji
-          emoji_generator: !!python/name:materialx.emoji.to_svg
-    - pymdownx.critic
-    - pymdownx.caret
-    - pymdownx.mark
-    - pymdownx.tilde
-    - pymdownx.tabbed
-    - attr_list
-    - pymdownx.arithmatex:
-          generic: true
-    - pymdownx.highlight:
-          linenums: true
-    - pymdownx.superfences
-    - pymdownx.details
-    - admonition
-    - toc:
-          baselevel: 2
-          permalink: true
-          slugify: !!python/name:pymdownx.slugs.uslugify
-    - meta
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - admonition
+  - toc:
+      baselevel: 2
+      permalink: true
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - meta
 plugins:
-    - include-markdown
-    - search:
-          lang: en
-    - mkdocstrings:
-          watch:
-              - daschat_base
+  - include-markdown
+  - search:
+      lang: en
+  # - mkdocstrings:
+  #     watch:
+  #       - daschat_base
+  - mkdocstrings:
+      handlers:
+        python:
+          rendering:
+            show_root_heading: false
+            show_signature_annotations: true
+            show_if_no_docstring: false
+            show_object_full_path: false
+            show_root_full_path: true
+
 extra:
-    social:
-        - icon: fontawesome/brands/twitter
-          # replace with your own tweet link below
-          link: https://www.daschat.io
-          name: Tweet
-        - icon: fontawesome/brands/facebook
-          # replace with your own facebook link below
-          link: http://www.daschat.io
-          name: Facebook
-        - icon: fontawesome/brands/github
-          link: https://github.com/daschat-io/daschat_base
-          name: Github
-        - icon: material/email
-          link: "mailto:abner@apoana.com.br"
-    # to enable disqus, uncomment the following and put your disqus id below
-    # disqus: disqus_id
+  social:
+    - icon: fontawesome/brands/twitter
+      # replace with your own tweet link below
+      link: https://www.daschat.io
+      name: Tweet
+    - icon: fontawesome/brands/facebook
+      # replace with your own facebook link below
+      link: http://www.daschat.io
+      name: Facebook
+    - icon: fontawesome/brands/github
+      link: https://github.com/daschat-io/daschat_base
+      name: Github
+    - icon: material/email
+      link: "mailto:abner@apoana.com.br"
+  # to enable disqus, uncomment the following and put your disqus id below
+  # disqus: disqus_id
 # uncomment the following and put your google tracking id below to enable GA
 #google_analytics:
 #- UA-xxx
