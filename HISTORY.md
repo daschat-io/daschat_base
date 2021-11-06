@@ -1,6 +1,6 @@
 # History
 
-## 0.15.0 (2021-11-06)
+## 0.15.1 (2021-11-06)
 
 ### :building_construction:
 
