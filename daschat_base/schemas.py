@@ -5,6 +5,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+import cuid
 from pydantic import AnyHttpUrl, BaseModel, Extra, Field, stricturl
 
 from .types import MessageDispatchEnum, MessageTypeEnum
@@ -336,6 +337,13 @@ class MessageSchema(BaseModel):
     class Config:
         validate_assignment = True
 
+    id: str = Field(
+        cuid.cuid(),
+        max_length=256,
+        title="ID",
+        description="Message ID",
+        example="Message ID from who created it.",
+    )
     dispatch: MessageDispatchEnum = Field(
         MessageDispatchEnum.gateway,
         title="Dispatch Module",

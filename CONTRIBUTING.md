@@ -100,14 +100,14 @@ Before you submit a pull request, check that it meets these guidelines:
    and make sure that the tests pass for all supported Python versions.
 
 ## Tips```
-    $ pytest tests.test_daschat_base
+    $ pytest -v tests.test_daschat_handsoff_base
 ```To run a subset of tests.
 
 
 ## Deploying
 
 A reminder for the maintainers on how to deploy.
-Make sure all your changes for version are committed in `pyproject.toml` and `test_daschat_handsoff_base.py` (including an entry in HISTORY.md).
+Make sure all your changes for version are committed in `pyproject.toml`, `version.py` and `test_daschat_handsoff_base.py` (including an entry in HISTORY.md).
 Then run:
 
 ```

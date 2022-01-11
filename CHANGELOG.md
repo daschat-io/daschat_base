@@ -1,5 +1,5 @@
-## 0.15.2 (2021-11-06)
+## 0.15.3 (2022-01-11)
 
-### :building_construction:
+##### :label: Add or update types
 
-* Added support for Python 3.7
+* Added `id` field to the `MessageSchema` schema. In the future it will be used to track the origin of the message.
