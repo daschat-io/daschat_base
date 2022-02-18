@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Optional
 import cuid
 from pydantic import AnyHttpUrl, BaseModel, Extra, Field, stricturl
 
+from .base_schemas.slots import SlotDataSchema
 from .types import MessageDispatchEnum, MessageTypeEnum
 
 
@@ -206,6 +207,11 @@ class Chat(BaseModel):
         title="Handsoff app data",
         description="handsoff data received from the plugin and that need to be stored.",
     )
+    slots: Optional[List[SlotDataSchema]] = Field(
+        [],
+        title="Slots Data",
+        description="Slots (variables) used/created by plugins.",
+    )
 
 
 class Contact(BaseModel):
@@ -260,6 +266,11 @@ class Contact(BaseModel):
     )
     status: int = Field(
         ..., title="Status", description="Contact status.", example="1", gt=-1, lt=1025
+    )
+    slots: Optional[List[SlotDataSchema]] = Field(
+        [],
+        title="Slots Data",
+        description="Slots (variables) used/created by plugins.",
     )
 
 

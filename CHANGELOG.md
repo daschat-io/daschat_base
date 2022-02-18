@@ -1,5 +1,10 @@
-## 0.15.3 (2022-01-11)
+## 0.15.4 (2022-02-18)
+
+##### :recycle: Refactor code
+
+* Create directory `schemas` to hold schemas definitions.
 
 ##### :label: Add or update types
 
-* Added `id` field to the `MessageSchema` schema. In the future it will be used to track the origin of the message.
+* Added `slots` field to `Chat` and `Contact` schemas.
+* Added schema file `slots.py` with new schamas to suppor usage of `slots` fields.

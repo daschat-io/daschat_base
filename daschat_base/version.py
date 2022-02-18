@@ -1,4 +1,4 @@
-VERSION = "0.15.3"
+VERSION = "0.15.4"
 
 
 def version_info() -> str:
