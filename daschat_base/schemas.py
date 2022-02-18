@@ -8,7 +8,7 @@ from typing import Any, Dict, List, Optional
 import cuid
 from pydantic import AnyHttpUrl, BaseModel, Extra, Field, stricturl
 
-from .base_schemas.slots import SlotDataSchema
+from .base_schemas import SlotDataSchema
 from .types import MessageDispatchEnum, MessageTypeEnum
 
 

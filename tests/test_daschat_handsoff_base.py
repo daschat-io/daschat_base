@@ -40,6 +40,10 @@ def test_email() -> None:
     assert __email__ == current_email
 
 
+def test_schemas_import() -> None:
+    from daschat_base.base_schemas import SlotDataSchema
+
+
 # def test_enums() -> None:
 #     """Test package enums."""
 #     assert repr(WebhookTypesEnum.CHAT_SESSION) == WebhookTypesEnum.CHAT_SESSION.value
