@@ -27,12 +27,12 @@ loguru = "^0.5.3"
 [tool.poetry.dev-dependencies]
 
 # Docs
-mkdocs-autorefs = "0.1.1"
-mkdocs = "^1.1.2"
-mkdocs-include-markdown-plugin = "^1.0.0"
-mkdocs-material = "^6.1.7"
-mkdocs-material-extensions = "^1.0.1"
-mkdocstrings = "^0.15.2"
+mkdocs-autorefs = "0.3.1"
+mkdocs = "^1.2.3"
+mkdocs-include-markdown-plugin = "^3.2.3"
+mkdocs-material = "^8.2.1"
+mkdocs-material-extensions = "^1.0.3"
+mkdocstrings = "^0.18.0"
 
 # Dev/Test tools
 black = "20.8b1"
@@ -47,7 +47,7 @@ pip = "^20.3.1"
 twine = "^3.3.0"
 pre-commit = "^2.12.0"
 toml = "^0.10.2"
-tox-poetry-dev-dependencies = "^0.0.9"
+mkdocstrings-python-legacy = "^0.2.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
