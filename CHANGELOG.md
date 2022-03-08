@@ -1,10 +1,5 @@
-## 0.15.4 (2022-02-18)
-
-##### :recycle: Refactor code
-
-* Create directory `schemas` to hold schemas definitions.
+## 0.15.5 (2022-03-08)
 
 ##### :label: Add or update types
 
-* Added `slots` field to `Chat` and `Contact` schemas.
-* Added schema file `slots.py` with new schamas to suppor usage of `slots` fields.
+* Changed `path` field in `MediaMetaData` schema from `Path` to `str` type.

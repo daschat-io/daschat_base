@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "daschat_base"
-version = "0.15.4"
+version = "0.15.5"
 homepage = "https://github.com/daschat-io/daschat_base"
 description = "Base package for Daschat modules."
 authors = ["Abner G Jacobsen <abner@apoana.com.br>"]
