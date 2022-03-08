@@ -2,7 +2,6 @@
 
 from datetime import datetime
 from enum import Enum
-from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import cuid
@@ -310,7 +309,7 @@ class MediaMetaData(BaseModel):
         description="Original media file name.",
         example="filename.png",
     )
-    path: Path = Field(
+    path: str = Field(
         ...,
         title="Media Path",
         description="The valid absolute path of the media in the storage system",
