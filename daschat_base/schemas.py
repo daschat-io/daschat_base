@@ -542,3 +542,20 @@ class DispatchCallOutSchema(BaseModel):
         description="Messages from dispatch module to be delivered by Daschat.",
         example="See schema MessageSchema",
     )
+
+
+class HandsoffNewChatSchema(BaseModel):
+    class Config:
+        validate_assignment = True
+        extra = Extra.forbid
+
+    chat: Chat = Field(
+        ...,
+        title="Chat",
+        description="New chat data.",
+    )
+    contact: Contact = Field(
+        ...,
+        title="Contact",
+        description="Contact details associated with the new chat.",
+    )
