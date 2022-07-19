@@ -1,5 +1,11 @@
 # History
 
+## 0.15.8 (2022-07-19)
+
+##### :label: Add or update types
+
+* Added new schema `HandsoffNewChatSchema` in file `daschat_base/schemas.py` to be used when new chat must be created in the handsoff service.
+
 ## 0.15.5 (2022-03-08)
 
 ##### :label: Add or update types
