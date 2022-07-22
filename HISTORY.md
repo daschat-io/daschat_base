@@ -1,7 +1,12 @@
 # History
 
-## 0.15.8 (2022-07-19)
+## 0.15.9 (2022-07-22)
 
+##### :label: Add or update types
+
+* Added new values to field `value_type` in schema `SlotDataSchema` in file `daschat_base/base_schemas/slots.py`.
+
+## 0.15.8 (2022-
 ##### :label: Add or update types
 
 * Added new schema `HandsoffNewChatSchema` in file `daschat_base/schemas.py` to be used when new chat must be created in the handsoff service.
