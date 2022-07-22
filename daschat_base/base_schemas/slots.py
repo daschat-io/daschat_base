@@ -10,7 +10,7 @@ class SlotDataSchema(BaseModel):
     class Config:
         validate_assignment = True
 
-    value_type: Literal["text", "bool", "float", "list", "categorical"] = Field(
+    value_type: Literal["text", "bool", "float", "list", "dict", "categorical", "int"] = Field(
         ...,
         title="Slot Type",
         description="Slot value type.",
